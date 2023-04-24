@@ -29,10 +29,7 @@
   margin-bottom: 20px;
 }
 
-#player-container .weapon-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#player-container button {
   background-color: #f44336;
   color: #ffffff;
   border: none;
@@ -45,13 +42,8 @@
   transition: background-color 0.3s ease;
 }
 
-#player-container .weapon-btn:hover {
+#player-container button:hover {
   background-color: #d32f2f;
-}
-
-#player-container .weapon-img {
-  width: 100%;
-  height: 100%;
 }
 
 /* Style the result container */
@@ -99,21 +91,47 @@
   margin-top: 10px;
 }
 
-/* Style the images */
-#rock-img {
-  background-image: url("https://cdn-icons-png.flaticon.com/512/858/858115.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+/* Add styles for the rock, paper, and scissors images */
+.player-choice img,
+.computer-choice img {
+  height: 150px;
+  margin: 20px 0;
+  display: block;
 }
 
-#paper-img {
-  background-image: url("https://cdn-icons-png.flaticon.com/512/685/685648.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+.player-choice img {
+  transform: rotate(-30deg);
 }
 
-#scissors-img {
-  background-image: url("https://cdn-icons-png.flaticon.com/512/2163/2163547.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+.computer-choice img {
+  transform: rotate(30deg);
+}
+
+/* Add media queries for smaller screens */
+@media only screen and (max-width: 768px) {
+  #game-container {
+    flex-direction: column;
+  }
+  
+  #player-container,
+  #result-container,
+  #computer-container {
+    width: 100%;
+  }
+  
+  .player-choice img,
+  .computer-choice img {
+    height: 100px;
+    margin: 10px 0;
+  }
+  
+  #player-container button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  #result-text,
+  #computer-choice {
+    font-size: 16px;
+  }
 }
