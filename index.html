@@ -1,203 +1,29 @@
 <!DOCTYPE html>
-<html>
-
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Pokemon Battle Game</title>
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
-    <script src="pokemon.js"></script>
-    <script src="game.js"></script>
-  </head>
-
-  <body>
-    <div class="game-container">
-      <h1>Pokemon Battle Game</h1>
-
-      <div class="player-selection">
-        <h2>Choose your pokemon:</h2>
-        <div class="pokemon-selection">
-          <button id="pokemon-1">Bulbasaur</button>
-          <button id="pokemon-2">Charmander</button>
-          <button id="pokemon-3">Squirtle</button>
-          <!-- more pokemon buttons here -->
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <div id="game-container">
+        <div id="player-container">
+            <h2>Player</h2>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
         </div>
-      </div>
-
-      <div class="computer-selection">
-        <h2>The computer chooses:</h2>
-        <div class="pokemon-selection">
-          <button id="computer-pokemon">?</button>
+        <div id="result-container">
+            <h2>Result</h2>
+            <p id="result-text">Choose an option to start playing!</p>
         </div>
-      </div>
-
-      <div class="battle-container">
-        <div class="pokemon-container">
-          <h3>Your Pokemon</h3>
-          <div id="player-pokemon"></div>
-          <div class="pokemon-stats">
-            <div class="pokemon-name" id="player-name"></div>
-            <div class="pokemon-hp">
-              HP: <span id="player-hp"></span>/<span id="player-max-hp"></span>
-            </div>
-            <div class="pokemon-mana">
-              Mana: <span id="player-mana"></span>/<span id="player-max-mana"></span>
-            </div>
-          </div>
+        <div id="computer-container">
+            <h2>Computer</h2>
+            <p id="computer-choice">Waiting for your move...</p>
         </div>
-        <div class="pokemon-container">
-          <h3>Computer's Pokemon</h3>
-          <div id="computer-pokemon"></div>
-          <div class="pokemon-stats">
-            <div class="pokemon-name" id="computer-name">?</div>
-            <div class="pokemon-hp">
-              HP: <span id="computer-hp"></span>/<span id="computer-max-hp"></span>
-            </div>
-            <div class="pokemon-mana">
-              Mana: <span id="computer-mana"></span>/<span id="computer-max-mana"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item-container">
-        <h2>Items</h2>
-        <div class="item-selection">
-          <select id="item-1">
-            <option value="">Choose Item</option>
-            <option value="Potion">Potion</option>
-            <option value="Super Potion">Super Potion</option>
-            <option value="Max Potion">Max Potion</option>
-          </select>
-          <select id="item-2">
-            <option value="">Choose Item</option>
-            <option value="Ether">Ether</option>
-            <option value="Elixir">Elixir</option>
-            <option value="Max Elixir">Max Elixir</option>
-          </select>
-        </div>
-      </div>
     </div>
-  </body>
 
+    <script src="script.js"></script>
+</body>
 </html>
-<div id="instructions" class="instructions">
-  <h2>How to Play</h2>
-  <p>Welcome to the world of Pokémon! In this game, you will be tasked with choosing a team of Pokémon and battling against other trainers. Each Pokémon has basic attacks and one unique ability. You can use these attacks to defeat your opponents and become the ultimate Pokémon trainer.</p>
-  <p>To start the game, first choose your team of Pokémon. You can choose from five different tiers of Pokémon, each stronger than the last. Once you've chosen your team, you'll enter into the buying phase. Here, you can purchase items to help your Pokémon in battle.</p>
-  <p>After the buying phase, you'll enter into the battle phase. Your Pokémon will automatically attack any enemy Pokémon within its range, and will automatically use its ability based on certain criteria. The battle will continue until one team has been defeated.</p>
-</div>
-
-<div id="pokemon-selection" class="pokemon-selection">
-  <h2>Pokemon Selection</h2>
-  <p>Choose your team of pokemon:</p>
-  <div class="tier">
-    <h3>Tier 1: $1000</h3>
-    <div class="pokemon">
-      <div class="pokemon-image">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
-      </div>
-      <div class="pokemon-info">
-        <h4>Bulbasaur</h4>
-        <p>HP: 45</p>
-        <p>Attack: 49</p>
-        <p>Defense: 49</p>
-        <p>Mana: 100</p>
-        <p>Ability: Razor Leaf</p>
-        <p>Description: Bulbasaur can attack the enemy with razor-sharp leaves.</p>
-      </div>
-      <button class="buy" onclick="buyPokemon('Bulbasaur', 1000)">Buy</button>
-    </div>
-    <div class="pokemon">
-      <div class="pokemon-image">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png">
-      </div>
-      <div class="pokemon-info">
-        <h4>Charmander</h4>
-        <p>HP: 39</p>
-        <p>Attack: 52</p>
-        <p>Defense: 43</p>
-        <p>Mana: 100</p>
-        <p>Ability: Flamethrower</p>
-        <p>Description: Charmander can attack the enemy with a powerful stream of fire.</p>
-      </div>
-      <button class="buy" onclick="buyPokemon('Charmander', 1000)">Buy</button>
-    </div>
-    <div class="pokemon">
-      <div class="pokemon-image">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png">
-      </div>
-      <div class="pokemon-info">
-        <h4>Squirtle</h4>
-        <p>HP: 44</p>
-        <p>Attack: 48</p>
-        <p>Defense: 65</p>
-        <p>Mana: 100</p>
-        <p>Ability: Water Gun</p>
-        <p>Description: Squirtle can attack the enemy with a powerful blast of water.</p>
-      </div>
-      <button class="
-            <button id=" sellButton" onclick="sellPokemon()">Sell Pokemon</button>
-    </div>
-
-    <div id="storeDiv">
-      <h2>Store</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Pokemon</th>
-            <th>Price</th>
-            <th>Buy</th>
-          </tr>
-        </thead>
-        <tbody id="storeTableBody">
-          <!-- Dynamically generated rows -->
-        </tbody>
-      </table>
-    </div>
-
-    <div id="bagDiv">
-      <h2>Bag</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Quantity</th>
-          </tr>
-        </thead>
-        <tbody id="bagTableBody">
-          <!-- Dynamically generated rows -->
-        </tbody>
-      </table>
-    </div>
-    <div id="battleDiv">
-      <h2>Battle</h2>
-      <div id="playerPokemonDiv">
-        <h3>Your Pokemon</h3>
-        <img id="playerPokemonImg" src="">
-        <div id="playerPokemonStats">
-          <p>Name: <span id="playerPokemonName"></span></p>
-          <p>HP: <span id="playerPokemonHP"></span></p>
-          <p>Mana: <span id="playerPokemonMana"></span></p>
-        </div>
-      </div>
-      <div id="enemyPokemonDiv">
-        <h3>Enemy Pokemon</h3>
-        <img id="enemyPokemonImg" src="">
-        <div id="enemyPokemonStats">
-          <p>Name: <span id="enemyPokemonName"></span></p>
-          <p>HP: <span id="enemyPokemonHP"></span></p>
-          <p>Mana: <span id="enemyPokemonMana"></span></p>
-        </div>
-      </div>
-      <div id="battleLogDiv">
-        <h3>Battle Log</h3>
-        <ul id="battleLogList">
-          <!-- Dynamically generated list items -->
-        </ul>
-      </div>
-    </div>
-
-    <script src="main.js"></script>
-    </body>
-
-    </html>
