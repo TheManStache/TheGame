@@ -29,7 +29,10 @@
   margin-bottom: 20px;
 }
 
-#player-container button {
+#player-container .weapon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #f44336;
   color: #ffffff;
   border: none;
@@ -42,8 +45,13 @@
   transition: background-color 0.3s ease;
 }
 
-#player-container button:hover {
+#player-container .weapon-btn:hover {
   background-color: #d32f2f;
+}
+
+#player-container .weapon-img {
+  width: 100%;
+  height: 100%;
 }
 
 /* Style the result container */
@@ -89,4 +97,23 @@
   font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
+}
+
+/* Style the images */
+#rock-img {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/858/858115.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#paper-img {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/685/685648.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#scissors-img {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/2163/2163547.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
