@@ -21,10 +21,10 @@ function getResult(playerChoice, computerChoice) {
   } else if (playerChoice === 'rock' && computerChoice === 'scissors' || 
              playerChoice === 'paper' && computerChoice === 'rock' || 
              playerChoice === 'scissors' && computerChoice === 'paper') {
-    computerWins++;
+    computerLosses++;
     return 'win';
   } else {
-    computerLosses++;
+    computerWins++;
     return 'lose';
   }
 }
