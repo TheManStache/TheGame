@@ -1,24 +1,26 @@
+// Pokemon Class
 class Pokemon {
-  constructor(name, type, moves = [], hp = 100) {
+  constructor(name, health, attackDamage) {
     this.name = name;
-    this.type = type;
-    this.moves = moves;
-    this.hp = hp;
+    this.health = health;
+    this.attackDamage = attackDamage;
   }
 
-  speak() {
-    console.log(`${this.name} (${this.type})`);
-  }
-
-  chooseMove(moveIndex) {
-    console.log(`${this.name} used ${this.moves[moveIndex]}!`);
-  }
-
-  takeDamage(damage) {
-    this.hp = Math.max(0, this.hp - damage);
-    console.log(`${this.name} took ${damage} damage!`);
-    if (this.hp === 0) {
-      console.log(`${this.name} has fainted!`);
+  // Attack method
+  attack(target) {
+    target.health -= this.attackDamage;
+    console.log(`${this.name} attacked ${target.name}!`);
+    console.log(`${target.name} has ${target.health} health remaining.`);
+    if (target.health <= 0) {
+      console.log(`${target.name} has fainted!`);
     }
   }
 }
+
+// Create Pokemons
+const pikachu = new Pokemon("Pikachu", 100, 10);
+const charmander = new Pokemon("Charmander", 80, 8);
+
+// Test the Attack method
+pikachu.attack(charmander);
+charmander.attack(pikachu);
