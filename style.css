@@ -1,0 +1,92 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set up the game container */
+#game-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  background-color: #ffffff;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the player container */
+#player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+#player-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#player-container button {
+  background-color: #f44336;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#player-container button:hover {
+  background-color: #d32f2f;
+}
+
+/* Style the result container */
+#result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+#result-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#result-container p {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Style the computer container */
+#computer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+#computer-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#computer-container p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Style the result text and computer choice text */
+#result-text,
+#computer-choice {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
