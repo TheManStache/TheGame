@@ -1,55 +1,44 @@
-// Select elements from the HTML
-const rockButton = document.getElementById("rock");
-const paperButton = document.getElementById("paper");
-const scissorsButton = document.getElementById("scissors");
-const resultText = document.getElementById("result-text");
-const computerChoiceText = document.getElementById("computer-choice");
+const weapons = ['rock', 'paper', 'scissors'];
 
-// Create an array of choices
-const choices = ["rock", "paper", "scissors"];
+let computerWins = 0;
+let computerLosses = 0;
+let computerTies = 0;
 
-// Function to generate a random computer choice
-function computerPlay() {
-  const randomIndex = Math.floor(Math.random() * choices.length);
-  return choices[randomIndex];
-}
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const playerChoice = button.id.split('-')[0];
+    const computerChoice = weapons[Math.floor(Math.random() * weapons.length)];
+    const result = getResult(playerChoice, computerChoice);
+    displayResult(playerChoice, computerChoice, result);
+  });
+});
 
-// Function to check the result of the game
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
-    return "It's a tie!";
-  } else if (
-    (playerSelection === "rock" && computerSelection === "scissors") ||
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
-  ) {
-    return "You win!";
+function getResult(playerChoice, computerChoice) {
+  if (playerChoice === computerChoice) {
+    computerTies++;
+    return 'tie';
+  } else if (playerChoice === 'rock' && computerChoice === 'scissors' || 
+             playerChoice === 'paper' && computerChoice === 'rock' || 
+             playerChoice === 'scissors' && computerChoice === 'paper') {
+    computerWins++;
+    return 'lose';
   } else {
-    return "Computer wins!";
+    computerLosses++;
+    return 'win';
   }
 }
 
-// Function to update the result text and computer choice text
-function updateResult(result, computerChoice) {
-  resultText.textContent = result;
+function displayResult(playerChoice, computerChoice, result) {
+  const resultText = document.getElementById('result-text');
+  const computerChoiceText = document.getElementById('computer-choice');
+  const computerWinsText = document.getElementById('computer-wins');
+  const computerLossesText = document.getElementById('computer-losses');
+  const computerTiesText = document.getElementById('computer-ties');
+  
+  resultText.textContent = `You chose ${playerChoice}, computer chose ${computerChoice}. You ${result}.`;
   computerChoiceText.textContent = `Computer chose ${computerChoice}.`;
+  computerWinsText.textContent = computerWins;
+  computerLossesText.textContent = computerLosses;
+  computerTiesText.textContent = computerTies;
 }
-
-// Event listeners for each button
-rockButton.addEventListener("click", () => {
-  const computerSelection = computerPlay();
-  const result = playRound("rock", computerSelection);
-  updateResult(result, computerSelection);
-});
-
-paperButton.addEventListener("click", () => {
-  const computerSelection = computerPlay();
-  const result = playRound("paper", computerSelection);
-  updateResult(result, computerSelection);
-});
-
-scissorsButton.addEventListener("click", () => {
-  const computerSelection = computerPlay();
-  const result = playRound("scissors", computerSelection);
-  updateResult(result, computerSelection);
-});
